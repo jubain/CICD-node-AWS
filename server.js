@@ -7,7 +7,6 @@ const connectDB = require("./config/db");
 const userRoutes = require("./routes/users");
 const errorHandler = require("./middlewares/error");
 
-
 // Connect to DB
 connectDB();
 
@@ -24,8 +23,14 @@ app.use("/api/users", userRoutes);
 
 app.use("/api/products", (req, res) => {
   return res.status(200).json({
-    message: 'This is new feature change, a new route for products'
-  })
+    message: "This is product list",
+  });
+});
+
+app.use("/api/products", (req, res) => {
+  return res.status(200).json({
+    message: "This is new feature change, a new route for products",
+  });
 });
 
 app.use(errorHandler);
