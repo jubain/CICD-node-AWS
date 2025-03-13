@@ -28,3 +28,5 @@ jobs:
     - run: |
          touch .env
          echo "${{ secrets.PROD_ENV_FILE }}" > .env
+    # CD when there is change in the github then it will restart the EC2 server (reinstall the node module, recreate env file and the secrets in the .envfile)     
+    - run: pm2 restart BackendAPI;
